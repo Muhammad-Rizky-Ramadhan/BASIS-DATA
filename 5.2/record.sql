@@ -1,0 +1,18 @@
+DECLARE
+    CURSOR CUR_EMPS IS
+    SELECT * FROM EMPLOYEES
+    WHERE
+        DEPARTMENT_ID = 90;
+    V_EMP_RECORD CUR_EMPS%ROWTYPE;
+BEGIN
+    OPEN CUR_EMPS;
+    LOOP
+        FETCH CUR_EMPS INTO V_EMP_RECORD;
+        EXIT WHEN CUR_EMPS%NOTFOUND;
+        DBMS_OUTPUT.PUT_LINE(V_EMP_RECORD.EMPLOYEE_ID
+                             || ' - '
+                             || V_EMP_RECORD.LAST_NAME);
+    END LOOP;
+    CLOSE CUR_EMPS;
+END;
+/

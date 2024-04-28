@@ -1,0 +1,9 @@
+DECLARE
+    V_LOWER NUMBER := 1;
+    V_UPPER NUMBER := 100;
+BEGIN
+    FOR I IN V_LOWER..V_UPPER LOOP
+        DBMS_OUTPUT.PUT_LINE('Hello world');
+    END LOOP;
+END;
+/
